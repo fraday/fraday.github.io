@@ -64,6 +64,7 @@ public class CreateFile {
   }
 }
 ```
+<br />
 ## Methods
 ### Strings
 ```java
@@ -78,10 +79,10 @@ Length of substring will be `endIndex-beginIndex`
 int codePointAt(int index) 
 ```
 Returns unicode of character at specified index. `codePointBefore(int index)` is also a defined function.
-```java
+
+<br />
 
 ```
-printf() symbols
 %c 	Format characters
 %d 	Format decimal (integer) numbers (base 10)
 %e 	Format exponential floating-point numbers
@@ -92,10 +93,12 @@ printf() symbols
 %u 	Format unsigned decimal (integer) numbers
 %x 	Format numbers in hexadecimal (base 16)
 %n 	add a new line character
+```
+printf() symbols
 
-<br /><br />
+<br />
 
-Self-explanatory definitions
+**Self-explanatory definitions**
 ```java
 boolean isEmpty()
 ```
@@ -200,6 +203,10 @@ int main () {
 }
 ```
 Be sure to `.close()` your files, and you use `boolean getLine(file, line)` to get/check for a new line `.is_open()` will be a good failsafe.
+
+## String methods
+just remember `substr(int pos, int len)` lol
+
 ## Important imports
 
 ```cpp
