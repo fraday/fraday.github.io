@@ -144,6 +144,7 @@ std::vector<int> third (second.begin(),second.end());  // iterating through seco
 std::vector<int> fourth (third);                       // a copy of third
 ```
 <br />
+
 ### Method definitions
 
 ```cpp
