@@ -4,66 +4,21 @@ My lovely book.
 
 ## Files
 
-### Input/Output
-
-Use the `Scanner` class with `System.in`.
-
-```java
-import java.util.Scanner;
-public class InputOutput {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        int i = sc.nextInt();
-    }
-}
-```
-
 ### Read/Write to Files
 
 Use both the `Scanner` and `File` classes.
 
 ```java
-import java.util.File;
-import java.util.Scanner;
-public class InputOutput {
-    public static void main(String[] args) {
-        File inputFile = new Filer("path.txt");
-        Scanner input = new Scanner(inputFile);
-        String fileContents = ""; //Write everything to this file (but no \n's)
-        while (input.hasNextLine()) {
-            fileContents+=input.nextLine();
-        }
-        
-        
-    }
-}
-```
+//File class
+boolean hasNextLine()
+boolean createNewFile()
 
-```java
-import java.io.File;  // Import the File class
-import java.io.FileWriter;  // Import the FileWriter class
-import java.io.IOException;  // Import the IOException class to handle errors
-
-public class CreateFile {
-  public static void main(String[] args) {
-    try {
-      File myObj = new File("filename.txt");
-      if (myObj.createNewFile()) {
-        System.out.println("File created: " + myObj.getName());
-      } else {
-        System.out.println("File already exists.");
-      }
-      FileWriter myWriter = new FileWriter("filename.txt");
-      myWriter.write("Files in Java might be tricky, but it is fun enough!");
-      myWriter.close();
-      System.out.println("Successfully wrote to the file.");
-    } catch (IOException e) {
-      System.out.println("An error occurred.");
-      e.printStackTrace();
-    }
-  }
-}
+//FileWriter class
+FileWriter(String path)
+void write(String body)
+void close()
 ```
+check for `IOException`s (`java.io.IOException`)
 <br />
 ## Methods
 ### Strings
@@ -160,40 +115,9 @@ void clear()
 
 ## Read/Write to files
 
-Use `<fstream>` with its `ifstream` and `ofstream` classes
-```cpp
-// reading a text file
-#include <iostream>
-#include <fstream>
-#include <string>
-using namespace std;
+Use `<fstream>` with its `ifstream` and `ofstream` classes\n
 
-int main () {
-  string line;
-  ifstream myfile ("example.txt");
-  if (myfile.is_open()) {
-    while (getline (myfile,line)) cout << line << '\n';
-    myfile.close();
-  } else cout << "Unable to open file"; 
-  return 0;
-}
-```
-```cpp
-// writing on a text file
-#include <iostream>
-#include <fstream>
-using namespace std;
-
-int main () {
-  ofstream myfile ("example.txt");
-  if (myfile.is_open()) {
-    myfile << "This is a line.\n";
-    myfile << "This is another line.\n";
-    myfile.close();
-  } else cout << "Unable to open file";
-  return 0;
-}
-```
+`file << "text\n";` to write to file (make sure it's open)\n
 Be sure to `.close()` your files, and you use `boolean getLine(file, line)` to get/check for a new line `.is_open()` will be a good failsafe.
 
 ## String methods
