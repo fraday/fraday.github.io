@@ -115,7 +115,7 @@ boolean matches(String regex) //AUTOPUTS "^ $" AROUND
 ```java
 char[] toCharArray()
 ```
-<br /><br /><br /><br /><br />
+<div style="page-break-after: always;"></div>
 
 
 
