@@ -1,8 +1,8 @@
-## Java BPA Code
+# Java BPA Code
 
-You can use the [editor on GitHub](https://github.com/fraday/fraday.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
+My lovely book.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Files
 
 ### Input/Output
 
@@ -14,7 +14,6 @@ public class InputOutput {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int i = sc.nextInt();
-        
     }
 }
 ```
@@ -65,21 +64,146 @@ public class CreateFile {
   }
 }
 ```
-### Method
+## Methods
+### Strings
 ```java
 String substring(int beginIndex, int endIndex)
 ```
-Gets string from beginIndex to but **not including** endIndex
-Length of substring will be endIndex-beginIndex
+Gets string from `beginIndex` to but **not including** `endIndex`
+Length of substring will be `endIndex-beginIndex`
+
+<br />
+
 ```java
-"ABCDEFG".substring(2, 4) //"CD"
+int codePointAt(int index) 
+```
+Returns unicode of character at specified index. `codePointBefore(int index)` is also a defined function.
+```java
+
+```
+printf() symbols
+%c 	Format characters
+%d 	Format decimal (integer) numbers (base 10)
+%e 	Format exponential floating-point numbers
+%f 	Format floating-point numbers
+%i 	Format integers (base 10)
+%o 	Format octal numbers (base 8)
+%s 	Format string of characters
+%u 	Format unsigned decimal (integer) numbers
+%x 	Format numbers in hexadecimal (base 16)
+%n 	add a new line character
+
+<br /><br />
+
+Self-explanatory definitions
+```java
+boolean isEmpty()
+```
+```java
+int firstIndexOf(String check)
+int lastIndexOf(String check)
+```
+```java
+String[] split(String check)
+```
+```java
+boolean matches(String regex) //AUTOPUTS "^ $" AROUND
+```
+```java
+char[] toCharArray()
+```
+<br /><br /><br />
+
+
+
+
+
+# C++ Resources
+
+## Vectors
+### Constructor definitions
+default (1)	
+`explicit vector (const allocator_type& alloc = allocator_type());`
+
+fill (2)	
+`explicit vector(size_type n, const value_type& val = value_type(), const allocator_type& alloc = allocator_type());`
+
+range (3)	
+`template <class InputIterator> vector(InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type());`
+
+copy (4)	
+`vector (const vector& x);`
+
+```cpp
+std::vector<int> first;                                // empty vector of ints
+std::vector<int> second (4,100);                       // four ints with value 100
+std::vector<int> third (second.begin(),second.end());  // iterating through second
+std::vector<int> fourth (third);                       // a copy of third
+```
+<br />
+### Method definitions
+
+```cpp
+T at(int index)
+int length()
+int find (const string& str, int pos = 0) const;
+iterator insert (iterator position, const value_type& val);
+int size()
+void clear()
 ```
 
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/fraday/fraday.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## Read/Write to files
 
-### Support or Contact
+Use `<fstream>` with its `ifstream` and `ofstream` classes
+```cpp
+// reading a text file
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+int main () {
+  string line;
+  ifstream myfile ("example.txt");
+  if (myfile.is_open())
+  {
+    while ( getline (myfile,line) )
+    {
+      cout << line << '\n';
+    }
+    myfile.close();
+  }
+
+  else cout << "Unable to open file"; 
+
+  return 0;
+}
+```
+```cpp
+// writing on a text file
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main () {
+  ofstream myfile ("example.txt");
+  if (myfile.is_open())
+  {
+    myfile << "This is a line.\n";
+    myfile << "This is another line.\n";
+    myfile.close();
+  }
+  else cout << "Unable to open file";
+  return 0;
+}
+```
+Be sure to `.close()` your files, and you use `boolean getLine(file, line)` to get/check for a new line `.is_open()` will be a good failsafe.
+## Important imports
+
+```cpp
+#include <iostream> //cout and cin
+#include <fstream> //ofstream and ifstream classes
+#include <string>
+```
